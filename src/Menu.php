@@ -7,7 +7,7 @@ namespace RebelCode\WordPress\Admin\Menu;
  *
  * @since [*next-version*]
  */
-class Menu extends AbstractBaseMenu
+class Menu extends AbstractBaseMenu implements WriteableMenuInterface
 {
     /*
      * This trait provides callback awareness functionality.
@@ -35,6 +35,18 @@ class Menu extends AbstractBaseMenu
              ->_setCapability($capability)
              ->_setIcon($icon)
              ->_setCallback($callback);
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since [*next-version*]
+     */
+    public function addMenuItem(MenuElementInterface $menuItem, $position = null)
+    {
+        $this->_addMenuItem($menuItem, $position);
+
+        return $this;
     }
 
     /**
