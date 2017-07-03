@@ -54,12 +54,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/RebelCodecom/wp-admin-menu-interface.git",
-                "reference": "fbb16100a8d27dbae400232f9e75976c4099401e"
+                "reference": "e7623c54f622a105e19e7c14b2b9c27194f02738"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RebelCodecom/wp-admin-menu-interface/zipball/fbb16100a8d27dbae400232f9e75976c4099401e",
-                "reference": "fbb16100a8d27dbae400232f9e75976c4099401e",
+                "url": "https://api.github.com/repos/RebelCodecom/wp-admin-menu-interface/zipball/e7623c54f622a105e19e7c14b2b9c27194f02738",
+                "reference": "e7623c54f622a105e19e7c14b2b9c27194f02738",
                 "shasum": ""
             },
             "require": {
@@ -100,7 +100,7 @@
                 "source": "https://github.com/RebelCodecom/wp-admin-menu-interface/tree/task/initial-interfaces",
                 "issues": "https://github.com/RebelCodecom/wp-admin-menu-interface/issues"
             },
-            "time": "2017-06-30 15:25:27"
+            "time": "2017-07-03 09:50:24"
         }
     ],
     "packages-dev": [
@@ -1570,12 +1570,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "0353f8aa5843d0cae051185514c0d877699704cc"
+                "reference": "16d9ac5f9e665d9b0cea7cd5acca3f6e7598ad35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/0353f8aa5843d0cae051185514c0d877699704cc",
-                "reference": "0353f8aa5843d0cae051185514c0d877699704cc",
+                "url": "https://api.github.com/repos/symfony/console/zipball/16d9ac5f9e665d9b0cea7cd5acca3f6e7598ad35",
+                "reference": "16d9ac5f9e665d9b0cea7cd5acca3f6e7598ad35",
                 "shasum": ""
             },
             "require": {
@@ -1632,7 +1632,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-24 09:47:31"
+            "time": "2017-07-03T08:12:16+00:00"
         },
         {
             "name": "symfony/debug",
@@ -1916,12 +1916,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "201c3bd3f167804bdfba2bf6a3a26097978a854a"
+                "reference": "23d5ac279cc7b71f733daecca49782a644ef6b9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/201c3bd3f167804bdfba2bf6a3a26097978a854a",
-                "reference": "201c3bd3f167804bdfba2bf6a3a26097978a854a",
+                "url": "https://api.github.com/repos/symfony/process/zipball/23d5ac279cc7b71f733daecca49782a644ef6b9f",
+                "reference": "23d5ac279cc7b71f733daecca49782a644ef6b9f",
                 "shasum": ""
             },
             "require": {
@@ -1957,7 +1957,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-09 13:37:35"
+            "time": "2017-07-03T08:12:16+00:00"
         },
         {
             "name": "symfony/stopwatch",
@@ -1965,12 +1965,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "162ab93ee3ff841fc9398232aa36a061467aef19"
+                "reference": "0a9eecca76049dae31796273dddae22920fb3e54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/162ab93ee3ff841fc9398232aa36a061467aef19",
-                "reference": "162ab93ee3ff841fc9398232aa36a061467aef19",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/0a9eecca76049dae31796273dddae22920fb3e54",
+                "reference": "0a9eecca76049dae31796273dddae22920fb3e54",
                 "shasum": ""
             },
             "require": {
@@ -2006,7 +2006,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2017-05-17 16:21:40"
+            "time": "2017-07-03T08:16:04+00:00"
         },
         {
             "name": "symfony/yaml",
