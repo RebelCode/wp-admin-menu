@@ -3,13 +3,14 @@
 namespace unit;
 
 use RebelCode\WordPress\Admin\Menu\Menu;
+use Xpmock\TestCase;
 
 /**
  * Tests {@see RebelCode\WordPress\Admin\Menu\Menu}.
  *
  * @since [*next-version*]
  */
-class MenuTest extends \Xpmock\TestCase
+class MenuTest extends TestCase
 {
     public function createMenuItem($id, $label)
     {
