@@ -2,6 +2,8 @@
 
 namespace RebelCode\WordPress\Admin\Menu;
 
+use Dhii\Validation\Exception\ValidationFailedException;
+
 /**
  * Base functionality for a menu element.
  *
