@@ -42,21 +42,6 @@ class IconAwareTraitTest extends TestCase
     }
 
     /**
-     * Tests whether a valid instance of the test subject can be created.
-     *
-     * @since [*next-version*]
-     */
-    public function testCanBeCreated()
-    {
-        $subject = $this->createInstance();
-
-        $this->assertInstanceOf(
-            static::TEST_SUBJECT_CLASSNAME, $subject,
-            'Subject is not a valid instance'
-        );                
-    }
-
-    /**
      * Tests the icon getter and setter methods to ensure correct value assignment and retrieval.
      *
      * @since [*next-version*]
