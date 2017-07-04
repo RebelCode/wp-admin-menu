@@ -26,11 +26,4 @@ abstract class AbstractMenuElement
     protected function _construct()
     {
     }
-
-    /**
-     * Triggered when the menu element is selected.
-     *
-     * @since [*next-version*]
-     */
-    abstract protected function _onSelected();
 }
