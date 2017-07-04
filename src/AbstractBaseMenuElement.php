@@ -14,9 +14,39 @@ abstract class AbstractBaseMenuElement extends AbstractMenuElement implements Me
      *
      * @since [*next-version*]
      */
-    public function getId()
+    public function getKey()
     {
-        return $this->_getId();
+        return $this->_getKey();
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since [*next-version*]
+     */
+    public function getValue()
+    {
+        return $this->_getValue();
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since [*next-version*]
+     */
+    public function getChildren()
+    {
+        return $this->_getChildren();
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since [*next-version*]
+     */
+    public function getParent()
+    {
+        return $this->_getParent();
     }
 
     /**
@@ -26,7 +56,7 @@ abstract class AbstractBaseMenuElement extends AbstractMenuElement implements Me
      */
     public function getLabel()
     {
-        return $this->_getLabel();
+        return $this->_getValue();
     }
 
     /**
@@ -54,8 +84,13 @@ abstract class AbstractBaseMenuElement extends AbstractMenuElement implements Me
      *
      * @since [*next-version*]
      */
-    public function onSelected()
-    {
-        $this->_onSelected();
+    protected function _createValidationFailedException(
+        $message,
+        $code = 0,
+        $inner = null,
+        $subject = null,
+        $validationErrors = []
+    ) {
+        return new ValidationFailedException($message, $code, $inner, $subject, $validationErrors);
     }
 }
