@@ -2,6 +2,7 @@
 
 namespace RebelCode\WordPress\Admin\Menu\FuncTest;
 
+use Dhii\Validation\Exception\ValidationFailedException;
 use Xpmock\TestCase;
 use RebelCode\WordPress\Admin\Menu\AbstractBaseMenuElement;
 
@@ -24,21 +25,25 @@ class AbstractBaseMenuElementTest extends TestCase
      *
      * @since [*next-version*]
      *
-     * @param string      $id
-     * @param string      $label
-     * @param string      $cap
+     * @param string $key
+     * @param string $label
+     * @param string $cap
      * @param string|null $icon
+     * @param mixed $parent
+     * @param array $children
      *
      * @return AbstractBaseMenuElement
      */
-    public function createInstance($id = '', $label = '', $cap = '', $icon = '')
+    public function createInstance($key = '', $label = '', $cap = '', $icon = '', $parent = null, $children = [])
     {
         $mock = $this->mock(static::TEST_SUBJECT_CLASSNAME, [
-            'id'          => $id,
-            'label'       => $label,
+            'key'         => $key,
+            'value'       => $label,
             'capability'  => $cap,
             'icon'        => $icon,
-            '_onSelected' => function () {}
+            'parent'      => $parent,
+            'children'    => $children,
+            'onSelected'  => function () {}
         ]);
 
         return $mock;
@@ -65,15 +70,27 @@ class AbstractBaseMenuElementTest extends TestCase
     }
 
     /**
-     * Tests the ID getter and setter methods to ensure correct assignment and retrieval.
+     * Tests the key getter and setter methods to ensure correct assignment and retrieval.
      *
      * @since [*next-version*]
      */
-    public function testGetSetId()
+    public function testGetKey()
     {
-        $subject = $this->createInstance($id = 'test-123');
+        $subject = $this->createInstance($key = 'test-123');
 
-        $this->assertEquals($id, $subject->getId());
+        $this->assertEquals($key, $subject->getKey());
+    }
+
+    /**
+     * Tests the value getter and setter methods to ensure correct assignment and retrieval of the label.
+     *
+     * @since [*next-version*]
+     */
+    public function testGetValue()
+    {
+        $subject = $this->createInstance('', $label = 'Test Label');
+
+        $this->assertEquals($label, $subject->getValue());
     }
 
     /**
@@ -81,7 +98,7 @@ class AbstractBaseMenuElementTest extends TestCase
      *
      * @since [*next-version*]
      */
-    public function testGetSetLabel()
+    public function testGetLabel()
     {
         $subject = $this->createInstance('', $label = 'Test Label');
 
@@ -93,7 +110,7 @@ class AbstractBaseMenuElementTest extends TestCase
      *
      * @since [*next-version*]
      */
-    public function testGetSetCapability()
+    public function testGetCapability()
     {
         $subject = $this->createInstance('', '', $cap = 'some_cap');
 
@@ -105,7 +122,7 @@ class AbstractBaseMenuElementTest extends TestCase
      *
      * @since [*next-version*]
      */
-    public function testGetSetIcon()
+    public function testGetIcon()
     {
         $subject = $this->createInstance('', '', '', $icon = 'some_icon');
 
@@ -113,16 +130,58 @@ class AbstractBaseMenuElementTest extends TestCase
     }
 
     /**
-     * Tests the on-select method to ensure that the abstract protected method is invoked.
+     * Tests the parent getter and setter methods to ensure correct assignment and retrieval.
      *
      * @since [*next-version*]
      */
-    public function testOnSelected()
+    public function testGetParent()
     {
-        $subject = $this->createInstance();
-        $mock    = $subject->mock();
-        $mock->_onSelected($this->once());
+        $parent  = $this->createInstance('parent');
+        $subject = $this->createInstance('', '', '', $icon = 'some_icon', $parent);
 
-        $subject->onSelected();
+        $this->assertSame($parent, $subject->getParent());
+    }
+
+    /**
+     * Tests the parent getter and setter methods to ensure correct assignment and retrieval.
+     *
+     * @since [*next-version*]
+     */
+    public function testGetChildren()
+    {
+        $child1  = $this->createInstance('child1');
+        $child2  = $this->createInstance('child2');
+        $child3  = $this->createInstance('child3');
+        $subject = $this->createInstance('', '', '', $icon = 'some_icon', null,
+            $children = [$child1, $child2, $child3]);
+
+        $this->assertSame($children, $subject->getChildren());
+    }
+
+    /**
+     * Tests the ValidationFailedExceptionInterface creation method to ensure that it correctly creates the
+     * exception instance.
+     *
+     * @since [*next-version*]
+     */
+    public function testCreateValidationFailedException()
+    {
+        $subject = $this->createInstance('');
+        $reflect = $this->reflect($subject);
+
+        /* @var $exception ValidationFailedException */
+        $exception = $reflect->_createValidationFailedException(
+            $message = 'Some exception message',
+            $code = 18,
+            $inner = new \Exception('Inner exception', 2, null),
+            $cause = $subject,
+            $errors = ['Some error', 'Another FUBAR error message']
+        );
+
+        $this->assertEquals($message, $exception->getMessage());
+        $this->assertEquals($code,    $exception->getCode());
+        $this->assertSame  ($inner,   $exception->getPrevious());
+        $this->assertEquals($cause,   $exception->getSubject());
+        $this->assertEquals($errors,  $exception->getValidationErrors());
     }
 }
