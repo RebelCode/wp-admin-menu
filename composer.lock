@@ -4,8 +4,147 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6123616759554b4b8b650220a324eea6",
+    "content-hash": "c198e6bb26f054956775470a110cc9fd",
     "packages": [
+        {
+            "name": "dhii/callback-aware-trait",
+            "version": "dev-task/initial-traits",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/callback-aware-trait.git",
+                "reference": "15f889ee07d75730c772243202e04872d12feec9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/callback-aware-trait/zipball/15f889ee07d75730c772243202e04872d12feec9",
+                "reference": "15f889ee07d75730c772243202e04872d12feec9",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4 | ^7.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "<=0.3.2",
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\Util\\": "src"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ],
+                "csfix": [
+                    "php-cs-fixer fix -vvv"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Traits for objects that are aware of callback functions.",
+            "support": {
+                "source": "https://github.com/Dhii/callback-aware-trait/tree/task/initial-traits",
+                "issues": "https://github.com/Dhii/callback-aware-trait/issues"
+            },
+            "time": "2017-07-04 12:07:41"
+        },
+        {
+            "name": "dhii/data-hierarchy-abstract",
+            "version": "dev-task/initial-classes",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/data-hierarchy-abstract.git",
+                "reference": "4016924a36b9b70bf7dc081f224632b1e3fae723"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/data-hierarchy-abstract/zipball/4016924a36b9b70bf7dc081f224632b1e3fae723",
+                "reference": "4016924a36b9b70bf7dc081f224632b1e3fae723",
+                "shasum": ""
+            },
+            "require": {
+                "dhii/validation-interface": "^0.1",
+                "php": "^5.4 | ^7.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "<=0.3.2",
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\Data\\": "src"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ],
+                "csfix": [
+                    "php-cs-fixer fix -vvv"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Common functionality for objects which can form a hierarchy",
+            "support": {
+                "source": "https://github.com/Dhii/data-hierarchy-abstract/tree/task/initial-classes",
+                "issues": "https://github.com/Dhii/data-hierarchy-abstract/issues"
+            },
+            "time": "2017-07-03 07:34:11"
+        },
+        {
+            "name": "dhii/data-hierarchy-aware-interface",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/data-hierarchy-aware-interface",
+                "reference": "984c7ca4da6aef9ead643a78b454ccd1e27bc9b3"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "phpunit/phpunit": "4.*",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\Data\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Interfaces for objects that are aware of a hierarchy, which they are a part of.",
+            "time": "2016-11-27 15:40:20"
+        },
         {
             "name": "dhii/data-identifiable-interface",
             "version": "v0.1",
@@ -49,21 +188,297 @@
             "time": "2017-03-07T16:25:09+00:00"
         },
         {
+            "name": "dhii/data-key-value-aware-interface",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/data-key-value-aware-interface.git",
+                "reference": "220232bc9040fab78a6c039f5a4a5f9542317bdc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/data-key-value-aware-interface/zipball/220232bc9040fab78a6c039f5a4a5f9542317bdc",
+                "reference": "220232bc9040fab78a6c039f5a4a5f9542317bdc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3 | ^7.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "<=0.3.2",
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "phpunit/phpunit": "4.*",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\Data\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Interfaces that aim to increase interoperability of value objects",
+            "time": "2017-01-21 17:35:30"
+        },
+        {
+            "name": "dhii/data-key-value-aware-trait",
+            "version": "dev-task/initial-traits",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/data-key-value-aware-trait",
+                "reference": "15189f54ba2807afdcfda6d3b09d79fca047c24d"
+            },
+            "require": {
+                "php": "^5.4 | ^7.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "<=0.3.2",
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\Data\\": "src"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ],
+                "csfix": [
+                    "php-cs-fixer fix -vvv"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Traits for objects that are aware of a key, a value, or both.",
+            "time": "2017-06-21 11:16:16"
+        },
+        {
+            "name": "dhii/data-tree-interface",
+            "version": "dev-task/initial-interfaces",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/data-tree-interface.git",
+                "reference": "bb71687bd52ca6a94e6df16e4ddbe0a776bd00ce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/data-tree-interface/zipball/bb71687bd52ca6a94e6df16e4ddbe0a776bd00ce",
+                "reference": "bb71687bd52ca6a94e6df16e4ddbe0a776bd00ce",
+                "shasum": ""
+            },
+            "require": {
+                "dhii/data-hierarchy-aware-interface": "dev-master",
+                "dhii/data-key-value-aware-interface": "dev-master",
+                "php": "^5.3.9 | ^7.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "<=0.3.2",
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "dhii/stringable-interface": "^0.1",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "suggest": {
+                "dhii/stringable-interface": "To pass objects as xPath query"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\Data\\Tree\\": "src"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ],
+                "csfix": [
+                    "php-cs-fixer fix -vvv"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Interfaces for objects that can make up a tree",
+            "support": {
+                "source": "https://github.com/Dhii/data-tree-interface/tree/task/initial-interfaces",
+                "issues": "https://github.com/Dhii/data-tree-interface/issues"
+            },
+            "time": "2017-07-03 09:05:29"
+        },
+        {
+            "name": "dhii/validation-abstract",
+            "version": "v0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/validation-abstract.git",
+                "reference": "ff8fc7068b6511ae2cdd300c74bf9b7bfabc61c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/validation-abstract/zipball/ff8fc7068b6511ae2cdd300c74bf9b7bfabc61c2",
+                "reference": "ff8fc7068b6511ae2cdd300c74bf9b7bfabc61c2",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3 | ^7.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "<=0.3.2",
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "dhii/validation-interface": "^0.1",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "suggest": {
+                "dhii/validation-interface": "Needed to be able to create exceptions that are expected to be thrown"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\Validation\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Common abstract functionality for validation.",
+            "time": "2017-03-26T15:18:42+00:00"
+        },
+        {
+            "name": "dhii/validation-base",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/validation-base.git",
+                "reference": "21b5d2e50f7b35b056409985dcefdfee58f4e411"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/validation-base/zipball/21b5d2e50f7b35b056409985dcefdfee58f4e411",
+                "reference": "21b5d2e50f7b35b056409985dcefdfee58f4e411",
+                "shasum": ""
+            },
+            "require": {
+                "dhii/validation-abstract": "^0.1",
+                "dhii/validation-interface": "^0.1",
+                "php": "^5.3 | ^7.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "<=0.3.2",
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\Validation\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Base concrete functionality for validation.",
+            "time": "2017-03-26 19:00:41"
+        },
+        {
+            "name": "dhii/validation-interface",
+            "version": "v0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/validation-interface.git",
+                "reference": "492823aa1bb6b0f2391b1c50b5161a8b2619288f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/validation-interface/zipball/492823aa1bb6b0f2391b1c50b5161a8b2619288f",
+                "reference": "492823aa1bb6b0f2391b1c50b5161a8b2619288f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3 | ^7.0"
+            },
+            "require-dev": {
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\Validation\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "A base interface for validators",
+            "time": "2017-03-10T13:38:44+00:00"
+        },
+        {
             "name": "rebelcode/wp-admin-menu-interface",
             "version": "dev-task/initial-interfaces",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RebelCodecom/wp-admin-menu-interface.git",
-                "reference": "e7623c54f622a105e19e7c14b2b9c27194f02738"
+                "reference": "fa71cb02cc539500df17c3d7f3c99a29a4b9ae76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RebelCodecom/wp-admin-menu-interface/zipball/e7623c54f622a105e19e7c14b2b9c27194f02738",
-                "reference": "e7623c54f622a105e19e7c14b2b9c27194f02738",
+                "url": "https://api.github.com/repos/RebelCodecom/wp-admin-menu-interface/zipball/fa71cb02cc539500df17c3d7f3c99a29a4b9ae76",
+                "reference": "fa71cb02cc539500df17c3d7f3c99a29a4b9ae76",
                 "shasum": ""
             },
             "require": {
                 "dhii/data-identifiable-interface": "^0.1",
+                "dhii/data-tree-interface": "dev-task/initial-interfaces",
                 "php": "^5.3 | ^7.0"
             },
             "require-dev": {
@@ -100,7 +515,7 @@
                 "source": "https://github.com/RebelCodecom/wp-admin-menu-interface/tree/task/initial-interfaces",
                 "issues": "https://github.com/RebelCodecom/wp-admin-menu-interface/issues"
             },
-            "time": "2017-07-03 09:50:24"
+            "time": "2017-07-04 10:48:38"
         }
     ],
     "packages-dev": [
@@ -164,23 +579,24 @@
         },
         {
             "name": "dhii/php-cs-fixer-config",
-            "version": "dev-php-5.3",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dhii/php-cs-fixer-config.git",
-                "reference": "ee3cc6c906a1aa4dca2bcbfcfef684dbd1ebb8ca"
+                "reference": "aef10e47f184ae206ff13c847ccc634b4ae87635"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dhii/php-cs-fixer-config/zipball/ee3cc6c906a1aa4dca2bcbfcfef684dbd1ebb8ca",
-                "reference": "ee3cc6c906a1aa4dca2bcbfcfef684dbd1ebb8ca",
+                "url": "https://api.github.com/repos/Dhii/php-cs-fixer-config/zipball/aef10e47f184ae206ff13c847ccc634b4ae87635",
+                "reference": "aef10e47f184ae206ff13c847ccc634b4ae87635",
                 "shasum": ""
             },
             "require": {
                 "friendsofphp/php-cs-fixer": ">=1.11 <1.12",
-                "php": "^5.3 | ^7.0"
+                "php": "^5.4 | ^7.0"
             },
             "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
                 "phpunit/phpunit": "^4.8"
             },
             "type": "library",
@@ -200,7 +616,7 @@
                 }
             ],
             "description": "A default PHP CS Fixer config implementation",
-            "time": "2016-09-03 14:45:03"
+            "time": "2016-09-03T14:20:46+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -1570,12 +1986,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "16d9ac5f9e665d9b0cea7cd5acca3f6e7598ad35"
+                "reference": "10537916d60d2affc5d4a6d04906f431af454f63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/16d9ac5f9e665d9b0cea7cd5acca3f6e7598ad35",
-                "reference": "16d9ac5f9e665d9b0cea7cd5acca3f6e7598ad35",
+                "url": "https://api.github.com/repos/symfony/console/zipball/10537916d60d2affc5d4a6d04906f431af454f63",
+                "reference": "10537916d60d2affc5d4a6d04906f431af454f63",
                 "shasum": ""
             },
             "require": {
@@ -1632,7 +2048,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-03T08:12:16+00:00"
+            "time": "2017-07-03 13:31:36"
         },
         {
             "name": "symfony/debug",
@@ -1957,7 +2373,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-03T08:12:16+00:00"
+            "time": "2017-07-03 08:12:16"
         },
         {
             "name": "symfony/stopwatch",
@@ -2006,7 +2422,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-03T08:16:04+00:00"
+            "time": "2017-07-03 08:16:04"
         },
         {
             "name": "symfony/yaml",
@@ -2014,12 +2430,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "f46d917c00519312152720916760ab18550c0ce5"
+                "reference": "519fb0872bb41e0f0c221ead8945eb12197bb034"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/f46d917c00519312152720916760ab18550c0ce5",
-                "reference": "f46d917c00519312152720916760ab18550c0ce5",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/519fb0872bb41e0f0c221ead8945eb12197bb034",
+                "reference": "519fb0872bb41e0f0c221ead8945eb12197bb034",
                 "shasum": ""
             },
             "require": {
@@ -2061,7 +2477,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-30 09:07:51"
+            "time": "2017-07-03 10:20:17"
         },
         {
             "name": "webmozart/assert",
@@ -2118,7 +2534,10 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "rebelcode/wp-admin-menu-interface": 20,
-        "dhii/php-cs-fixer-config": 20
+        "dhii/callback-aware-trait": 20,
+        "dhii/data-hierarchy-abstract": 20,
+        "dhii/data-key-value-aware-trait": 20,
+        "dhii/validation-base": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
