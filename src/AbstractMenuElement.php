@@ -16,7 +16,9 @@ abstract class AbstractMenuElement
      *
      * @since [*next-version*]
      */
-    use MenuElementTrait;
+    use MenuElementTrait {
+        MenuElementTrait::_addChild as _appendChild;
+    }
 
     /**
      * Parameter-less constructor.
@@ -27,6 +29,56 @@ abstract class AbstractMenuElement
      */
     protected function _construct()
     {
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since [*next-version*]
+     *
+     * @param int|null $position
+     */
+    protected function _addChild($child, $position = null)
+    {
+        $this->_validateChild($child);
+
+        if ($position === null) {
+            return $this->_appendChild($child);
+        }
+
+        // Normalize position - detects collisions and generates new keys
+        $position = $this->_normalizePosition($position, $child->getKey(), $child->getLabel());
+
+        // Add child at determined position
+        $this->children["$position"] = $child;
+
+        // Keep the children sorted
+        ksort($this->children);
+
+        return $this;
+    }
+
+    /**
+     * Normalizes the position.
+     *
+     * @since [*next-version*]
+     *
+     * @param int    $position The position.
+     * @param string $key      The menu key.
+     * @param string $label    The menu label.
+     *
+     * @return int
+     */
+    protected function _normalizePosition($position, $key = '', $label = '')
+    {
+        if (isset($this->children["$position"])) {
+            $hex = \md5($key . $label);
+            $dec = \base_convert($hex, 16, 10);
+
+            return $position + \substr($dec, -5) * 0.00001;
+        }
+
+        return $position;
     }
 
     /**

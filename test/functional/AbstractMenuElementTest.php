@@ -66,6 +66,49 @@ class AbstractMenuElementTest extends TestCase
         );
     }
 
+    /**
+     * Tests the child adder method to ensure that
+     *
+     * @since [*next-version*]
+     */
+    public function testAddChild()
+    {
+        $subject = $this->createInstance();
+        $reflect = $this->reflect($subject);
+
+        $reflect->_addChild($child1 = $this->createMenuElementMock());
+        $reflect->_addChild($child2 = $this->createMenuElementMock());
+
+        $expected = [$child1, $child2];
+
+        $this->assertEquals($expected, array_values($reflect->_getChildren()));
+    }
+
+    /**
+     * Tests the child adder method to ensure that
+     *
+     * @since [*next-version*]
+     */
+    public function testAddChildWithPositions()
+    {
+        $subject = $this->createInstance();
+        $reflect = $this->reflect($subject);
+
+        $reflect->_addChild($child1 = $this->createMenuElementMock(), 18);
+        $reflect->_addChild($child2 = $this->createMenuElementMock(), 12);
+        $reflect->_addChild($child3 = $this->createMenuElementMock(), 5);
+        $reflect->_addChild($child4 = $this->createMenuElementMock(), 12);
+
+        $expected = [$child3, $child2, $child4, $child1];
+
+        $this->assertEquals($expected, array_values($reflect->_getChildren()));
+    }
+
+    /**
+     * Tests the menu element instance checker method.
+     *
+     * @since [*next-version*]
+     */
     public function testIsMenuElement()
     {
         $subject = $this->createInstance();
