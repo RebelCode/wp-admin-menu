@@ -41,5 +41,6 @@ class MenuElementTraitTest extends TestCase
         return $mock;
     }
 
+    // There is nothing to test in this trait
     public function testNothing() {}
 }
