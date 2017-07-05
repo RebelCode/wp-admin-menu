@@ -2,6 +2,7 @@
 
 namespace RebelCode\WordPress\Admin\Menu\FuncTest;
 
+use RebelCode\WordPress\Admin\Menu\MenuElementInterface;
 use Xpmock\TestCase;
 use RebelCode\WordPress\Admin\Menu\MenuElementTrait;
 
