@@ -36,7 +36,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/RebelCodecom/wp-admin-menu-interface"
+            "url": "https://github.com/RebelCode/wp-admin-menu-interface"
         },
         {
             "type": "vcs",
