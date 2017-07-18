@@ -6,8 +6,6 @@ use Countable;
 use Dhii\Data\ChildrenAwareTrait;
 use Dhii\Data\KeyAwareTrait;
 use Dhii\Data\ParentAwareTrait;
-use Dhii\Data\Tree\ChildrenAwareNodeInterface;
-use Dhii\Data\Tree\KeyAwareNodeInterface;
 use Dhii\Data\ValueAwareTrait;
 use Dhii\Validation\Exception\ValidationFailedExceptionInterface;
 

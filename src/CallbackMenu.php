@@ -11,6 +11,9 @@ use Dhii\Util\CallbackAwareTrait;
  */
 class CallbackMenu extends AbstractBaseMenuElement implements RegisterMenuCapableInterface
 {
+    /*
+     * @since [*next-version*]
+     */
     use CallbackAwareTrait;
 
     /**
