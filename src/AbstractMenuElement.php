@@ -2,6 +2,13 @@
 
 namespace RebelCode\WordPress\Admin\Menu;
 
+use Countable;
+use Dhii\Data\ChildrenAwareTrait;
+use Dhii\Data\KeyAwareTrait;
+use Dhii\Data\ParentAwareTrait;
+use Dhii\Data\Tree\ChildrenAwareNodeInterface;
+use Dhii\Data\Tree\KeyAwareNodeInterface;
+use Dhii\Data\ValueAwareTrait;
 use Dhii\Validation\Exception\ValidationFailedExceptionInterface;
 
 /**
@@ -12,13 +19,36 @@ use Dhii\Validation\Exception\ValidationFailedExceptionInterface;
 abstract class AbstractMenuElement
 {
     /*
-     * This trait provides the protected methods for a menu element.
-     *
      * @since [*next-version*]
      */
-    use MenuElementTrait {
-        MenuElementTrait::_addChild as _appendChild;
+    use KeyAwareTrait;
+
+    /*
+     * @since [*next-version*]
+     */
+    use ValueAwareTrait;
+
+    /*
+     * @since [*next-version*]
+     */
+    use ChildrenAwareTrait {
+        ChildrenAwareTrait::_addChild as _appendChild;
     }
+
+    /*
+     * @since [*next-version*]
+     */
+    use ParentAwareTrait;
+
+    /*
+     * @since [*next-version*]
+     */
+    use CapabilityAwareTrait;
+
+    /*
+     * @since [*next-version*]
+     */
+    use IconAwareTrait;
 
     /**
      * Parameter-less constructor.
@@ -32,18 +62,23 @@ abstract class AbstractMenuElement
     }
 
     /**
-     * {@inheritdoc}
+     * Adds a child menu at a given position.
      *
      * @since [*next-version*]
      *
-     * @param int|null $position
+     * @param mixed    $child    The menu element to add as a child.
+     * @param int|null $position An integer, with larger values signifying a lower position, or null to append.
+     *
+     * @return $this
      */
     protected function _addChild($child, $position = null)
     {
         $this->_validateChild($child);
 
         if ($position === null) {
-            return $this->_appendChild($child);
+            $this->_appendChild($child);
+
+            return $this;
         }
 
         // Normalize position - detects collisions and generates new keys
@@ -56,6 +91,79 @@ abstract class AbstractMenuElement
         ksort($this->children);
 
         return $this;
+    }
+
+    /**
+     * Checks whether this menu element has children.
+     *
+     * @since [*next-version*]
+     *
+     * @return bool True if this instance has children; false otherwise.
+     */
+    protected function _hasChildren()
+    {
+        $children = $this->_getChildren();
+        $count    = 0;
+
+        if (is_array($children) || $children instanceof Countable) {
+            $count = count($children);
+        }
+
+        if ($children instanceof \Traversable) {
+            $count = iterator_count($children);
+        }
+
+        return $count > 0;
+    }
+
+    /**
+     * Checks whether this instance has a parent.
+     *
+     * @since [*next-version*]
+     *
+     * @return bool True if this instance has a parent; false otherwise.
+     */
+    protected function _hasParent()
+    {
+        return $this->_getParent() !== null;
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since [*next-version*]
+     */
+    protected function _validateChild($child)
+    {
+        if (!$this->_isMenuElement($child)) {
+            throw $this->_createValidationFailedException('Child is not a valid menu element.', 0, null, $child);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since [*next-version*]
+     */
+    protected function _validateParent($parent)
+    {
+        if ($parent !== null && !$this->_isMenuElement($parent)) {
+            throw $this->_createValidationFailedException('Parent is not a valid menu element.', 0, null, $parent);
+        }
+    }
+
+    /**
+     * Checks if a given variable is a menu element instance.
+     *
+     * @since [*next-version*]
+     *
+     * @param mixed $menuElement The variable to check.
+     *
+     * @return bool True if the given argument is a menu element instance, false if not.
+     */
+    protected function _isMenuElement($menuElement)
+    {
+        return $menuElement instanceof MenuElementInterface;
     }
 
     /**
@@ -79,48 +187,6 @@ abstract class AbstractMenuElement
         }
 
         return $position;
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @since [*next-version*]
-     */
-    protected function _validateParent($parent)
-    {
-        if ($parent === null) {
-            return;
-        }
-
-        if (!$this->_isMenuElement($parent)) {
-            throw $this->_createValidationFailedException('Parent is not a valid menu element.', 0, null, $parent);
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @since [*next-version*]
-     */
-    protected function _validateChild($child)
-    {
-        if (!$this->_isMenuElement($child)) {
-            throw $this->_createValidationFailedException('Child is not a valid menu element.', 0, null, $child);
-        }
-    }
-
-    /**
-     * Checks if a given variable is a menu element instance.
-     *
-     * @since [*next-version*]
-     *
-     * @param mixed $menuElement The variable to check.
-     *
-     * @return bool True if the given argument is a menu element instance, false if not.
-     */
-    protected function _isMenuElement($menuElement)
-    {
-        return $menuElement instanceof MenuElementInterface;
     }
 
     /**

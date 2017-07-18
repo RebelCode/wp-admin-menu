@@ -41,11 +41,13 @@ class AbstractMenuElementTest extends TestCase
         $mock = $this->mock('RebelCode\\WordPress\\Admin\\Menu\\MenuElementInterface')
             ->getKey()
             ->getValue()
+            ->getParent()
+            ->hasParent()
+            ->getChildren()
+            ->hasChildren()
             ->getLabel()
             ->getCapability()
             ->getIcon()
-            ->getParent()
-            ->getChildren()
             ->onSelected();
 
         return $mock->new();
