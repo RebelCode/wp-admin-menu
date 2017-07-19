@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "90c061e28eb7489ac67d4844199da7b6",
+    "content-hash": "b1f40dcc8db5e40cbd6e19ade2210202",
     "packages": [
         {
             "name": "dhii/callback-aware-trait",
@@ -284,16 +284,16 @@
         },
         {
             "name": "dhii/data-tree-interface",
-            "version": "dev-task/initial-interfaces",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dhii/data-tree-interface.git",
-                "reference": "c5b1272b7d8eab8bfd148a202c09ae8a1288a78b"
+                "reference": "2ac89fcfcd7c38b49a126dfede220ea815a82406"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dhii/data-tree-interface/zipball/c5b1272b7d8eab8bfd148a202c09ae8a1288a78b",
-                "reference": "c5b1272b7d8eab8bfd148a202c09ae8a1288a78b",
+                "url": "https://api.github.com/repos/Dhii/data-tree-interface/zipball/2ac89fcfcd7c38b49a126dfede220ea815a82406",
+                "reference": "2ac89fcfcd7c38b49a126dfede220ea815a82406",
                 "shasum": ""
             },
             "require": {
@@ -314,14 +314,7 @@
                     "Dhii\\Data\\Tree\\": "src"
                 }
             },
-            "scripts": {
-                "test": [
-                    "phpunit"
-                ],
-                "csfix": [
-                    "php-cs-fixer fix -vvv"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -332,11 +325,7 @@
                 }
             ],
             "description": "Interfaces for objects that can make up a tree",
-            "support": {
-                "source": "https://github.com/Dhii/data-tree-interface/tree/task/initial-interfaces",
-                "issues": "https://github.com/Dhii/data-tree-interface/issues"
-            },
-            "time": "2017-07-18 12:24:48"
+            "time": "2017-07-19 09:35:48"
         },
         {
             "name": "dhii/stringable-interface",
@@ -517,17 +506,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/RebelCode/wp-admin-menu-interface.git",
-                "reference": "7d29c1ca350714ad9d47695fa0b8f9077043cf3f"
+                "reference": "c4c332442734982a40b3889814b99c8c6d285c9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RebelCode/wp-admin-menu-interface/zipball/7d29c1ca350714ad9d47695fa0b8f9077043cf3f",
-                "reference": "7d29c1ca350714ad9d47695fa0b8f9077043cf3f",
+                "url": "https://api.github.com/repos/RebelCode/wp-admin-menu-interface/zipball/c4c332442734982a40b3889814b99c8c6d285c9d",
+                "reference": "c4c332442734982a40b3889814b99c8c6d285c9d",
                 "shasum": ""
             },
             "require": {
                 "dhii/data-identifiable-interface": "^0.1",
-                "dhii/data-tree-interface": "dev-task/initial-interfaces",
+                "dhii/data-tree-interface": "dev-develop",
                 "php": "^5.3 | ^7.0"
             },
             "require-dev": {
@@ -564,7 +553,7 @@
                 "source": "https://github.com/RebelCode/wp-admin-menu-interface/tree/task/initial-interfaces",
                 "issues": "https://github.com/RebelCode/wp-admin-menu-interface/issues"
             },
-            "time": "2017-07-18 11:05:08"
+            "time": "2017-07-19 12:33:44"
         }
     ],
     "packages-dev": [

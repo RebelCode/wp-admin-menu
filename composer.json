@@ -48,14 +48,6 @@
             "url": "https://github.com/Dhii/data-hierarchy-abstract"
         },
         {
-            "type": "vcs",
-            "url": "https://github.com/Dhii/data-tree-interface"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/Dhii/data-hierarchy-aware-interface"
-        },
-        {
             "type": "git",
             "url": "https://github.com/Dhii/data-key-value-aware-trait"
         }
