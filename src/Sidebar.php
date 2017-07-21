@@ -481,10 +481,10 @@ class Sidebar extends AbstractMenuBar implements RegisterMenuCapableInterface
         }
 
         if (isset($target["$position"])) {
-            $hex = \md5($menuSlug . $menuLabel, $position);
+            $hex = \md5($menuSlug . $menuLabel);
             $dec = \base_convert($hex, 16, 10);
 
-            return $position + \substr($dec, -5) * 0.00001;
+            return $position + (\substr($dec, -5) * 0.00001);
         }
 
         return $position;
@@ -512,7 +512,7 @@ class Sidebar extends AbstractMenuBar implements RegisterMenuCapableInterface
                 $menuData[static::K_MENU_LABEL]
             );
 
-            $target[$position] = $menuData;
+            $target["$position"] = $menuData;
         }
     }
 
