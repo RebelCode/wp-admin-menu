@@ -240,7 +240,6 @@ class Sidebar extends AbstractMenuBar implements RegisterMenuCapableInterface
 
         $this->wpRegisteredPages[$hookname] = true;
         $this->wpParentPages[$slug]         = false;
-        $this->registered[]                 = $menu;
 
         return $hookname;
     }
@@ -302,7 +301,6 @@ class Sidebar extends AbstractMenuBar implements RegisterMenuCapableInterface
 
         $this->wpRegisteredPages[$hookname] = true;
         $this->wpParentPages[$slug]         = $parentSlug;
-        $this->registered[]                 = $menu;
 
         return $hookname;
     }
