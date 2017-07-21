@@ -1,6 +1,6 @@
 <?php
 
-namespace unit;
+namespace RebelCode\WordPress\Admin\Menu\UnitTest;
 
 use PHPUnit_Framework_TestCase;
 use RebelCode\WordPress\Admin\Menu\CallbackMenu;
