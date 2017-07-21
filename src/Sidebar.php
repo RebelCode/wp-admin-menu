@@ -267,7 +267,7 @@ class Sidebar extends AbstractMenuBar implements RegisterMenuCapableInterface
         if (!$this->_currentUserCan($capability)) {
             $this->wpSubmenuNoPriv[$parentSlug][$slug] = true;
 
-            return null;
+            return;
         }
 
         /*
