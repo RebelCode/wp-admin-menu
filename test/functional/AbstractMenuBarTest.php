@@ -50,7 +50,6 @@ class AbstractMenuBarTest extends TestCase
         return $this->mock('RebelCode\\WordPress\\Admin\\Menu\\MenuElementInterface')
             ->getKey()
             ->getValue()
-            ->getParent()
             ->getChildren([])
             ->hasChildren()
             ->getLabel()
