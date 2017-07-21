@@ -46,7 +46,7 @@ class CallbackMenuTest extends PHPUnit_Framework_TestCase
             $called++;
         };
 
-        $subject = new CallbackMenu('', '', '', '', $callback);
+        $subject = new CallbackMenu('', '', '', $callback, '', []);
 
         $subject->onSelected();
 
