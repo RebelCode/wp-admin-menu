@@ -3,6 +3,8 @@
 namespace RebelCode\WordPress\Admin\Menu\FuncTest;
 
 use Dhii\Validation\Exception\ValidationFailedException;
+use Symfony\Component\Finder\Tests\Iterator\Iterator;
+use Traversable;
 use Xpmock\TestCase;
 use RebelCode\WordPress\Admin\Menu\AbstractBaseMenuElement;
 
@@ -155,7 +157,9 @@ class AbstractBaseMenuElementTest extends TestCase
         $subject = $this->createInstance('', '', '', $icon = 'some_icon', null,
             $children = [$child1, $child2, $child3]);
 
-        $this->assertSame($children, $subject->getChildren());
+        $result = iterator_to_array($subject->getChildren());
+
+        $this->assertEquals($children, $result, '', 0, 10, true);
     }
 
     /**
