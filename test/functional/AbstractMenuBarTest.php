@@ -3,6 +3,7 @@
 
 namespace RebelCode\WordPress\Admin\Menu\FuncTest;
 
+use RebelCode\WordPress\Admin\Menu\MenuElementInterface;
 use Xpmock\TestCase;
 use RebelCode\WordPress\Admin\Menu\AbstractMenuBar;
 
@@ -37,6 +38,13 @@ class AbstractMenuBarTest extends TestCase
         return $mock;
     }
 
+    /**
+     * Creates a mocked menu instance.
+     *
+     * @since [*next-version*]
+     *
+     * @return MenuElementInterface
+     */
     public function createMenu()
     {
         return $this->mock('RebelCode\\WordPress\\Admin\\Menu\\MenuElementInterface')
