@@ -57,6 +57,9 @@ abstract class AbstractMenuElement
      */
     protected function _construct()
     {
+        if (empty($this->children)) {
+            $this->children = [];
+        }
     }
 
     /**
