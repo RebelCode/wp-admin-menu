@@ -13,11 +13,14 @@
     "minimum-stability": "dev",
     "require": {
         "php": "^5.4 | ^7.0",
+        "rebelcode/wp-admin-page-interface": "dev-task/initial-interfaces",
         "rebelcode/wp-admin-menu-interface": "dev-task/initial-interfaces",
         "dhii/callback-aware-trait": "dev-task/initial-traits",
         "dhii/data-hierarchy-abstract": "dev-task/initial-classes",
         "dhii/data-key-value-aware-trait": "dev-task/initial-traits",
-        "dhii/validation-base": "dev-master"
+        "dhii/validation-base": "dev-master",
+        "dhii/psr-14": "^0.1.0",
+        "dhii/data-container-interface": "dev-task/initial-interfaces"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8",
@@ -41,6 +44,10 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/RebelCode/wp-admin-page-interface"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/Dhii/callback-aware-trait"
         },
         {
@@ -48,8 +55,12 @@
             "url": "https://github.com/Dhii/data-hierarchy-abstract"
         },
         {
-            "type": "git",
+            "type": "vcs",
             "url": "https://github.com/Dhii/data-key-value-aware-trait"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Dhii/psr-14"
         }
     ]
 }

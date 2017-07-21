@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b1f40dcc8db5e40cbd6e19ade2210202",
+    "content-hash": "caf9cf5554e242bfccd838946ccb71aa",
     "packages": [
         {
             "name": "dhii/callback-aware-trait",
@@ -58,6 +58,53 @@
                 "issues": "https://github.com/Dhii/callback-aware-trait/issues"
             },
             "time": "2017-07-04 12:07:41"
+        },
+        {
+            "name": "dhii/data-container-interface",
+            "version": "dev-task/initial-interfaces",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/data-container-interface.git",
+                "reference": "24e180a0c2e25346922d488b44eafc0953705a09"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/data-container-interface/zipball/24e180a0c2e25346922d488b44eafc0953705a09",
+                "reference": "24e180a0c2e25346922d488b44eafc0953705a09",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3 | ^7.0",
+                "psr/container": "^1.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "<=0.3.2",
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "dhii/stringable-interface": "^0.1",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "suggest": {
+                "dhii/stringable-interface": "To be able to pass Stringables as keys"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\Data\\Container\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Interfaces for working with data containers",
+            "time": "2017-07-16 08:24:20"
         },
         {
             "name": "dhii/data-hierarchy-abstract",
@@ -244,7 +291,7 @@
             "version": "dev-task/initial-traits",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Dhii/data-key-value-aware-trait",
+                "url": "https://github.com/Dhii/data-key-value-aware-trait.git",
                 "reference": "15189f54ba2807afdcfda6d3b09d79fca047c24d"
             },
             "require": {
@@ -326,6 +373,43 @@
             ],
             "description": "Interfaces for objects that can make up a tree",
             "time": "2017-07-19 09:35:48"
+        },
+        {
+            "name": "dhii/psr-14",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/psr-14.git",
+                "reference": "ebfa94b69b34e34ffdfc7288aeea2f1a315288b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/psr-14/zipball/ebfa94b69b34e34ffdfc7288aeea2f1a315288b5",
+                "reference": "ebfa94b69b34e34ffdfc7288aeea2f1a315288b5",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\EventManager\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Miguel Muscat",
+                    "email": "miguelmuscat93@gmail.com"
+                },
+                {
+                    "name": "Anton Ukhanev",
+                    "email": "xedin.unknown@gmail.com"
+                }
+            ],
+            "description": "A temporary PSR-14 repository.",
+            "support": {
+                "source": "https://github.com/Dhii/psr-14/tree/0.1",
+                "issues": "https://github.com/Dhii/psr-14/issues"
+            },
+            "time": "2016-07-06T18:43:19+00:00"
         },
         {
             "name": "dhii/stringable-interface",
@@ -501,17 +585,66 @@
             "time": "2017-03-10T13:38:44+00:00"
         },
         {
+            "name": "psr/container",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "time": "2017-02-14T16:28:37+00:00"
+        },
+        {
             "name": "rebelcode/wp-admin-menu-interface",
             "version": "dev-task/initial-interfaces",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RebelCode/wp-admin-menu-interface.git",
-                "reference": "c4c332442734982a40b3889814b99c8c6d285c9d"
+                "reference": "9bd61682a3dc0bfa37cc2ad372ecffc6020b192d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RebelCode/wp-admin-menu-interface/zipball/c4c332442734982a40b3889814b99c8c6d285c9d",
-                "reference": "c4c332442734982a40b3889814b99c8c6d285c9d",
+                "url": "https://api.github.com/repos/RebelCode/wp-admin-menu-interface/zipball/9bd61682a3dc0bfa37cc2ad372ecffc6020b192d",
+                "reference": "9bd61682a3dc0bfa37cc2ad372ecffc6020b192d",
                 "shasum": ""
             },
             "require": {
@@ -553,7 +686,62 @@
                 "source": "https://github.com/RebelCode/wp-admin-menu-interface/tree/task/initial-interfaces",
                 "issues": "https://github.com/RebelCode/wp-admin-menu-interface/issues"
             },
-            "time": "2017-07-19 12:33:44"
+            "time": "2017-07-21 08:34:54"
+        },
+        {
+            "name": "rebelcode/wp-admin-page-interface",
+            "version": "dev-task/initial-interfaces",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RebelCode/wp-admin-page-interface.git",
+                "reference": "dbb8e938cee7923cf70e5cd9bbfc39b9dc2197f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RebelCode/wp-admin-page-interface/zipball/dbb8e938cee7923cf70e5cd9bbfc39b9dc2197f8",
+                "reference": "dbb8e938cee7923cf70e5cd9bbfc39b9dc2197f8",
+                "shasum": ""
+            },
+            "require": {
+                "dhii/data-identifiable-interface": "^0.1",
+                "php": "^5.3 | ^7.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "<=0.3.2",
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "dhii/stringable-interface": "^0.1",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RebelCode\\WordPress\\Admin\\Page\\": "src"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ],
+                "csfix": [
+                    "php-cs-fixer fix -vvv"
+                ]
+            },
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "RebelCode",
+                    "email": "dev@rebelcode.com"
+                }
+            ],
+            "description": "Interfaces for a WordPress Admin pages object-oriented API.",
+            "support": {
+                "source": "https://github.com/RebelCode/wp-admin-page-interface/tree/task/initial-interfaces",
+                "issues": "https://github.com/RebelCode/wp-admin-page-interface/issues"
+            },
+            "time": "2017-07-19 13:06:28"
         }
     ],
     "packages-dev": [
@@ -2570,11 +2758,13 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "rebelcode/wp-admin-page-interface": 20,
         "rebelcode/wp-admin-menu-interface": 20,
         "dhii/callback-aware-trait": 20,
         "dhii/data-hierarchy-abstract": 20,
         "dhii/data-key-value-aware-trait": 20,
-        "dhii/validation-base": 20
+        "dhii/validation-base": 20,
+        "dhii/data-container-interface": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
