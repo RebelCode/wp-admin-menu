@@ -9,7 +9,7 @@ use Dhii\Util\CallbackAwareTrait;
  *
  * @since [*next-version*]
  */
-class CallbackMenu extends AbstractBaseMenuElement implements RegisterMenuCapableInterface
+class CallbackMenu extends AbstractBaseMenuElement
 {
     /*
      * @since [*next-version*]
@@ -22,30 +22,21 @@ class CallbackMenu extends AbstractBaseMenuElement implements RegisterMenuCapabl
      * @param string             $key        The menu key.
      * @param string             $label      The menu label.
      * @param string             $capability The user capability required to show the menu to the user.
-     * @param string|null        $icon       The menu icon.
      * @param callable|null      $callback   The callback to invoke when the menu is selected.
+     * @param string|null        $icon       The menu icon.
      * @param array|\Traversable $children   The child menus.
      *
      * @since [*next-version*]
      */
-    public function __construct($key, $label, $capability, $icon = null, callable $callback = null, $children = [])
+    public function __construct($key, $label, $capability, callable $callback = null, $icon = null, $children = [])
     {
         $this->_setKey($key)
             ->_setValue($label)
             ->_setCapability($capability)
-            ->_setIcon($icon)
             ->_setCallback($callback)
-            ->_addChildren($children);
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @since [*next-version*]
-     */
-    public function registerMenu(MenuElementInterface $menu, $position = null)
-    {
-        $this->_addChild($menu);
+            ->_setIcon($icon)
+            ->_addChildren($children)
+            ->_construct();
     }
 
     /**
