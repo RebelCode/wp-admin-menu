@@ -188,4 +188,23 @@ class AbstractBaseMenuElementTest extends TestCase
         $this->assertEquals($cause,   $exception->getSubject());
         $this->assertEquals($errors,  $exception->getValidationErrors());
     }
+
+    /**
+     * Tests whether the menu can be used as an iterator to iterate over its children.
+     *
+     * @since [*next-version*]
+     */
+    public function testIteration()
+    {
+        $subject = $this->createInstance('parent', '', '', '', null, [
+            $childA = $this->createInstance('childA'),
+            $childB = $this->createInstance('childB'),
+            $childC = $this->createInstance('childC')
+        ]);
+
+        $array    = iterator_to_array($subject);
+        $expected = [$childA, $childB, $childC];
+
+        $this->assertEquals($expected, $array, 'Iteration result is invalid', 0, 10, true);
+    }
 }
