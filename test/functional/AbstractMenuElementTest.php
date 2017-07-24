@@ -41,8 +41,6 @@ class AbstractMenuElementTest extends TestCase
         $mock = $this->mock('RebelCode\\WordPress\\Admin\\Menu\\MenuElementInterface')
             ->getKey()
             ->getValue()
-            ->getParent()
-            ->hasParent()
             ->getChildren()
             ->hasChildren()
             ->getLabel()
@@ -122,58 +120,5 @@ class AbstractMenuElementTest extends TestCase
         $this->assertTrue ($reflect->_isMenuElement($valid));
         $this->assertFalse($reflect->_isMenuElement($invalid));
         $this->assertFalse($reflect->_isMenuElement(null));
-    }
-
-    /**
-     * Tests the parent validation method with a valid parent.
-     *
-     * @since [*next-version*]
-     */
-    public function testValidateParentValid()
-    {
-        $subject   = $this->createInstance();
-        $reflect   = $this->reflect($subject);
-        $valid     = $this->createMenuElementMock();
-        $exception = null;
-
-        try {
-            $reflect->_validateParent($valid);
-        } catch (\Exception $exception) {}
-
-        $this->assertNull($exception, 'Valid parent was not expected to throw an exception.');
-    }
-
-    /**
- * Tests the parent validation method with an invalid parent.
- *
- * @since [*next-version*]
- */
-    public function testValidateParentInvalid()
-    {
-        $subject = $this->createInstance();
-        $reflect = $this->reflect($subject);
-        $invalid = new \ArrayIterator([]);
-
-        $this->setExpectedException('Dhii\\Validation\\Exception\\ValidationFailedExceptionInterface');
-
-        $reflect->_validateParent($invalid);
-    }
-
-    /**
-     * Tests the parent validation method with a null parent.
-     *
-     * @since [*next-version*]
-     */
-    public function testValidateParentNull()
-    {
-        $subject   = $this->createInstance();
-        $reflect   = $this->reflect($subject);
-        $exception = null;
-
-        try {
-            $reflect->_validateParent(null);
-        } catch (\Exception $exception) {}
-
-        $this->assertNull($exception, 'Null parent was not expected to throw an exception.');
     }
 }

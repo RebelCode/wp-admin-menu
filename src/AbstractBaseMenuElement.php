@@ -74,26 +74,6 @@ abstract class AbstractBaseMenuElement extends AbstractMenuElement implements
      *
      * @since [*next-version*]
      */
-    public function getParent()
-    {
-        return $this->_getParent();
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @since [*next-version*]
-     */
-    public function hasParent()
-    {
-        return $this->_hasParent();
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @since [*next-version*]
-     */
     public function getLabel()
     {
         return $this->_getValue();

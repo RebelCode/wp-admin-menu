@@ -36,14 +36,13 @@ class AbstractBaseMenuElementTest extends TestCase
      *
      * @return AbstractBaseMenuElement
      */
-    public function createInstance($key = '', $label = '', $cap = '', $icon = '', $parent = null, $children = [])
+    public function createInstance($key = '', $label = '', $cap = '', $icon = '', $children = [])
     {
         $mock = $this->mock(static::TEST_SUBJECT_CLASSNAME, [
             'key'         => $key,
             'value'       => $label,
             'capability'  => $cap,
             'icon'        => $icon,
-            'parent'      => $parent,
             'children'    => $children,
             'onSelected'  => function () {}
         ]);
@@ -136,26 +135,12 @@ class AbstractBaseMenuElementTest extends TestCase
      *
      * @since [*next-version*]
      */
-    public function testGetParent()
-    {
-        $parent  = $this->createInstance('parent');
-        $subject = $this->createInstance('', '', '', $icon = 'some_icon', $parent);
-
-        $this->assertSame($parent, $subject->getParent());
-    }
-
-    /**
-     * Tests the parent getter and setter methods to ensure correct assignment and retrieval.
-     *
-     * @since [*next-version*]
-     */
     public function testGetChildren()
     {
         $child1  = $this->createInstance('child1');
         $child2  = $this->createInstance('child2');
         $child3  = $this->createInstance('child3');
-        $subject = $this->createInstance('', '', '', $icon = 'some_icon', null,
-            $children = [$child1, $child2, $child3]);
+        $subject = $this->createInstance('', '', '', $icon = 'some_icon', $children = [$child1, $child2, $child3]);
 
         $result = iterator_to_array($subject->getChildren());
 
@@ -196,7 +181,7 @@ class AbstractBaseMenuElementTest extends TestCase
      */
     public function testIteration()
     {
-        $subject = $this->createInstance('parent', '', '', '', null, [
+        $subject = $this->createInstance('parent', '', '', '', [
             $childA = $this->createInstance('childA'),
             $childB = $this->createInstance('childB'),
             $childC = $this->createInstance('childC')

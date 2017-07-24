@@ -5,8 +5,9 @@ namespace RebelCode\WordPress\Admin\Menu;
 use Countable;
 use Dhii\Data\ChildrenAwareTrait;
 use Dhii\Data\KeyAwareTrait;
-use Dhii\Data\ParentAwareTrait;
 use Dhii\Data\ValueAwareTrait;
+use Dhii\Validation\Exception\ValidationException;
+use Dhii\Validation\Exception\ValidationFailedException;
 use Dhii\Validation\Exception\ValidationFailedExceptionInterface;
 
 /**
@@ -32,11 +33,6 @@ abstract class AbstractMenuElement
     use ChildrenAwareTrait {
         ChildrenAwareTrait::_addChild as _appendChild;
     }
-
-    /*
-     * @since [*next-version*]
-     */
-    use ParentAwareTrait;
 
     /*
      * @since [*next-version*]
@@ -69,6 +65,9 @@ abstract class AbstractMenuElement
      *
      * @param mixed    $child    The menu element to add as a child.
      * @param int|null $position An integer, with larger values signifying a lower position, or null to append.
+     *
+     * @throws ValidationFailedException If validation fails.
+     * @throws ValidationException If an error occurs during validation.
      *
      * @return $this
      */
@@ -118,18 +117,6 @@ abstract class AbstractMenuElement
     }
 
     /**
-     * Checks whether this instance has a parent.
-     *
-     * @since [*next-version*]
-     *
-     * @return bool True if this instance has a parent; false otherwise.
-     */
-    protected function _hasParent()
-    {
-        return $this->_getParent() !== null;
-    }
-
-    /**
      * {@inheritdoc}
      *
      * @since [*next-version*]
@@ -137,19 +124,9 @@ abstract class AbstractMenuElement
     protected function _validateChild($child)
     {
         if (!$this->_isMenuElement($child)) {
-            throw $this->_createValidationFailedException('Child is not a valid menu element.', 0, null, $child);
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @since [*next-version*]
-     */
-    protected function _validateParent($parent)
-    {
-        if ($parent !== null && !$this->_isMenuElement($parent)) {
-            throw $this->_createValidationFailedException('Parent is not a valid menu element.', 0, null, $parent);
+            throw $this->_createValidationFailedException('Child is not a valid menu element.', 0, null, $child, [
+                'Must be an instance of MenuElementInterface'
+            ]);
         }
     }
 
