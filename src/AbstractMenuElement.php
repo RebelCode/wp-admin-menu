@@ -163,10 +163,11 @@ abstract class AbstractMenuElement
     protected function _normalizePosition($position, $key = '', $label = '')
     {
         if (isset($this->children["$position"])) {
-            $hex = \md5($key . $label);
-            $dec = \base_convert($hex, 16, 10);
+            $hex   = \md5($key . $label);
+            $dec   = \base_convert($hex, 16, 10);
+            $float = \intval(\substr($dec, -5)) * 0.00001;
 
-            return $position + \substr($dec, -5) * 0.00001;
+            return $position + $float;
         }
 
         return $position;
