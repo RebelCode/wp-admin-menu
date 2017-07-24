@@ -6,6 +6,7 @@ use ArrayIterator;
 use Dhii\Validation\Exception\ValidationFailedException;
 use RecursiveArrayIterator;
 use RecursiveIterator;
+use Traversable;
 
 /**
  * Base functionality for a menu element.
@@ -52,7 +53,7 @@ abstract class AbstractBaseMenuElement extends AbstractMenuElement implements
      */
     public function getChildren()
     {
-        return new RecursiveArrayIterator($this->_getChildren());
+        return $this->_createChildrenIterator($this->_getChildren());
     }
 
     /**
@@ -161,6 +162,20 @@ abstract class AbstractBaseMenuElement extends AbstractMenuElement implements
     protected function _isIterating()
     {
         return $this->iterator && $this->valid();
+    }
+
+    /**
+     * Creates an iterator that iterates over the children menu elements.
+     *
+     * @since [*next-version*]
+     *
+     * @param MenuElementInterface[] $children The children menu elements.
+     *
+     * @return Traversable
+     */
+    protected function _createChildrenIterator($children)
+    {
+        return new RecursiveArrayIterator($children);
     }
 
     /**
