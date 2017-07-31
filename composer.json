@@ -19,8 +19,8 @@
         "dhii/data-hierarchy-abstract": "dev-task/initial-classes",
         "dhii/data-key-value-aware-trait": "dev-task/initial-traits",
         "dhii/validation-base": "dev-master",
-        "dhii/psr-14": "^0.1.0",
-        "dhii/data-container-interface": "dev-task/initial-interfaces"
+        "dhii/iterator-interface": "dev-task/initial-interfaces",
+        "dhii/iterator-abstract": "dev-task/initial-classes"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8",
@@ -62,6 +62,14 @@
         {
             "type": "vcs",
             "url": "https://github.com/Dhii/psr-14"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Dhii/iterator-interface"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Dhii/iterator-abstract"
         }
     ]
 }
