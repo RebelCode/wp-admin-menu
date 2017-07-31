@@ -2,11 +2,9 @@
 
 namespace RebelCode\WordPress\Admin\Menu;
 
-use ArrayIterator;
 use Dhii\Validation\Exception\ValidationFailedException;
-use RecursiveArrayIterator;
-use RecursiveIterator;
-use Traversable;
+use IteratorAggregate;
+use RebelCode\WordPress\Admin\Menu\Iteration\RecursiveChildrenAwareIterator;
 
 /**
  * Base functionality for a menu element.
@@ -15,17 +13,8 @@ use Traversable;
  */
 abstract class AbstractBaseMenuElement extends AbstractMenuElement implements
     MenuElementInterface,
-    RecursiveIterator
+    IteratorAggregate
 {
-    /**
-     * Description.
-     *
-     * @since [*next-version*]
-     *
-     * @var ArrayIterator
-     */
-    protected $iterator;
-
     /**
      * {@inheritdoc}
      *
@@ -53,7 +42,7 @@ abstract class AbstractBaseMenuElement extends AbstractMenuElement implements
      */
     public function getChildren()
     {
-        return $this->_createChildrenIterator($this->_getChildren());
+        return $this->_getChildren();
     }
 
     /**
@@ -63,11 +52,7 @@ abstract class AbstractBaseMenuElement extends AbstractMenuElement implements
      */
     public function hasChildren()
     {
-        // What to do here? ChildrenAware::hasChildren() or RecursiveIterator::hasChildren() ?
-
-        return $this->_isIterating()
-            ? $this->current()->hasChildren()
-            : $this->_hasChildren();
+        return $this->_hasChildren();
     }
 
     /**
@@ -105,77 +90,9 @@ abstract class AbstractBaseMenuElement extends AbstractMenuElement implements
      *
      * @since [*next-version*]
      */
-    public function rewind()
+    public function getIterator()
     {
-        $this->iterator = new ArrayIterator($this->_getChildren());
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @since [*next-version*]
-     */
-    public function valid()
-    {
-        return $this->iterator->valid();
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @since [*next-version*]
-     */
-    public function next()
-    {
-        $this->iterator->next();
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @since [*next-version*]
-     *
-     * @return MenuElementInterface
-     */
-    public function current()
-    {
-        return $this->iterator->current();
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @since [*next-version*]
-     */
-    public function key()
-    {
-        return $this->iterator->key();
-    }
-
-    /**
-     * Checks if the menu is being iterated over.
-     *
-     * @since [*next-version*]
-     *
-     * @return bool
-     */
-    protected function _isIterating()
-    {
-        return $this->iterator && $this->valid();
-    }
-
-    /**
-     * Creates an iterator that iterates over the children menu elements.
-     *
-     * @since [*next-version*]
-     *
-     * @param MenuElementInterface[] $children The children menu elements.
-     *
-     * @return Traversable
-     */
-    protected function _createChildrenIterator($children)
-    {
-        return new RecursiveArrayIterator($children);
+        return new RecursiveChildrenAwareIterator($this);
     }
 
     /**
