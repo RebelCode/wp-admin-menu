@@ -67,7 +67,7 @@ abstract class AbstractMenuElement
      * @param int|null $position An integer, with larger values signifying a lower position, or null to append.
      *
      * @throws ValidationFailedException If validation fails.
-     * @throws ValidationException If an error occurs during validation.
+     * @throws ValidationException       If an error occurs during validation.
      *
      * @return $this
      */
@@ -125,7 +125,7 @@ abstract class AbstractMenuElement
     {
         if (!$this->_isMenuElement($child)) {
             throw $this->_createValidationFailedException('Child is not a valid menu element.', 0, null, $child, [
-                'Must be an instance of MenuElementInterface'
+                'Must be an instance of MenuElementInterface',
             ]);
         }
     }
