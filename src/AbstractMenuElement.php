@@ -3,9 +3,11 @@
 namespace RebelCode\WordPress\Admin\Menu;
 
 use Countable;
+use Traversable;
 use Dhii\Data\ChildrenAwareTrait;
 use Dhii\Data\KeyAwareTrait;
 use Dhii\Data\ValueAwareTrait;
+use Dhii\Util\String\StringableInterface as Stringable;
 use Dhii\Validation\Exception\ValidationException;
 use Dhii\Validation\Exception\ValidationFailedException;
 use Dhii\Validation\Exception\ValidationFailedExceptionInterface;
@@ -120,6 +122,8 @@ abstract class AbstractMenuElement
      * {@inheritdoc}
      *
      * @since [*next-version*]
+     *
+     * @throws ValidationFailedException If the given argument is not valid as a child.
      */
     protected function _validateChild($child)
     {
@@ -178,11 +182,11 @@ abstract class AbstractMenuElement
      *
      * @since [*next-version*]
      *
-     * @param string                                      $message          The exception message.
-     * @param int                                         $code             The exception code.
-     * @param null                                        $inner            The previous exception in the chain.
-     * @param mixed                                       $subject          The subject that failed validation.
-     * @param string[]|StringableInterface[]|\Traversable $validationErrors The validation errors.
+     * @param string                            $message          The exception message.
+     * @param int                               $code             The exception code.
+     * @param null                              $inner            The previous exception in the chain.
+     * @param mixed                             $subject          The subject that failed validation.
+     * @param string[]|Stringable[]|Traversable $validationErrors The validation errors.
      *
      * @return ValidationFailedExceptionInterface
      */
