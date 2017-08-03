@@ -92,7 +92,7 @@ abstract class AbstractBaseMenuElement extends AbstractMenuElement implements
      */
     public function getIterator()
     {
-        return new RecursiveChildrenAwareIterator($this);
+        return new RecursiveMenuIterator($this);
     }
 
     /**

@@ -142,7 +142,7 @@ class AbstractBaseMenuElementTest extends TestCase
         $child3  = $this->createInstance('child3');
         $subject = $this->createInstance('', '', '', $icon = 'some_icon', $children = [$child1, $child2, $child3]);
 
-        $result = iterator_to_array($subject->getChildren());
+        $result = $subject->getChildren();
 
         $this->assertEquals($children, $result, '', 0, 10, true);
     }
@@ -182,14 +182,31 @@ class AbstractBaseMenuElementTest extends TestCase
     public function testIteration()
     {
         $subject = $this->createInstance('parent', '', '', '', [
-            $childA = $this->createInstance('childA'),
-            $childB = $this->createInstance('childB'),
-            $childC = $this->createInstance('childC')
+            $childA = $this->createInstance('childA', 'Child A'),
+            $childB = $this->createInstance('childB', 'Child B', '', '', [
+                $grandChild1 = $this->createInstance('gChild1','Grandchild 1'),
+                $grandChild2 = $this->createInstance('gChild2','Grandchild 2'),
+            ]),
+            $childC = $this->createInstance('childC', 'Child C', '', '', [
+                $grandChild3 = $this->createInstance('gChild3','Grandchild 3'),
+            ])
         ]);
 
-        $array    = iterator_to_array($subject);
-        $expected = [$childA, $childB, $childC];
+        // Ensures that we can iterate over the instance
+        $array = [];
+        foreach ($subject as $_key => $_val) {
+            $array[$_key] = $_val;
+        }
 
-        $this->assertEquals($expected, $array, 'Iteration result is invalid', 0, 10, true);
+        $expected = [
+            'childA'  => $childA,
+            'childB'  => $childB,
+            'gChild1' => $grandChild1,
+            'gChild2' => $grandChild2,
+            'childC'  => $childC,
+            'gChild3' => $grandChild3,
+        ];
+
+        $this->assertEquals($expected, $array, 'Iteration result is invalid');
     }
 }

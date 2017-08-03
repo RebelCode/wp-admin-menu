@@ -19,8 +19,7 @@
         "dhii/data-hierarchy-abstract": "dev-task/initial-classes",
         "dhii/data-key-value-aware-trait": "dev-task/initial-traits",
         "dhii/validation-base": "dev-master",
-        "dhii/iterator-interface": "dev-task/initial-interfaces",
-        "dhii/iterator-abstract": "dev-task/initial-classes"
+        "dhii/iterator-base": "dev-task/initial-classes"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8",
@@ -70,6 +69,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/Dhii/iterator-abstract"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Dhii/iterator-base"
         }
     ]
 }
