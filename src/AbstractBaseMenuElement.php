@@ -4,7 +4,6 @@ namespace RebelCode\WordPress\Admin\Menu;
 
 use Dhii\Validation\Exception\ValidationFailedException;
 use IteratorAggregate;
-use RebelCode\WordPress\Admin\Menu\Iteration\RecursiveChildrenAwareIterator;
 
 /**
  * Base functionality for a menu element.
