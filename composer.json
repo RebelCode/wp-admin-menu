@@ -45,7 +45,8 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/RebelCode/wp-admin-page-interface"
+            "url": "https://github.com/RebelCode/wp-admin-page-interface",
+            "no-api": true
         },
         {
             "type": "vcs",
