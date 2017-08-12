@@ -40,7 +40,8 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/RebelCode/wp-admin-menu-interface"
+            "url": "https://github.com/RebelCode/wp-admin-menu-interface",
+            "no-api": true
         },
         {
             "type": "vcs",
