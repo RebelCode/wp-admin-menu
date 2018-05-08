@@ -13,7 +13,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": "^5.4 | ^7.0",
-        "rebelcode/wp-admin-page-interface": "dev-task/initial-interfaces",
+        "rebelcode/wp-admin-page-interface": "dev-develop",
         "rebelcode/wp-admin-menu-interface": "dev-task/initial-interfaces",
         "dhii/callback-abstract": "^0.1-alpha1",
         "dhii/data-hierarchy-abstract": "dev-task/initial-classes",
