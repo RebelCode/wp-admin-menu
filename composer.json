@@ -15,13 +15,14 @@
         "php": "^5.4 | ^7.0",
         "rebelcode/wp-admin-page-interface": "dev-task/initial-interfaces",
         "rebelcode/wp-admin-menu-interface": "dev-task/initial-interfaces",
-        "dhii/callback-aware-trait": "dev-task/initial-traits",
+        "dhii/callback-abstract": "^0.1-alpha1",
         "dhii/data-hierarchy-abstract": "dev-task/initial-classes",
-        "dhii/data-key-value-aware-trait": "dev-task/initial-traits",
-        "dhii/validation-base": "dev-master",
-        "dhii/iterator-base": "dev-task/initial-classes"
+        "dhii/data-key-value-aware-abstract": "^0.1-alpha3",
+        "dhii/validation-base": "^0.1-alpha1 | ^0.2-alpha1",
+        "dhii/iterator-base": "dev-develop"
     },
     "require-dev": {
+        "php": "^5.6 | ^7.0",
         "phpunit/phpunit": "^4.8",
         "ptrofimov/xpmock": "^1.1",
         "dhii/php-cs-fixer-config": "master",
@@ -40,39 +41,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/RebelCode/wp-admin-menu-interface"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/RebelCode/wp-admin-page-interface"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Dhii/callback-aware-trait"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/Dhii/data-hierarchy-abstract"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Dhii/data-key-value-aware-trait"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Dhii/psr-14"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Dhii/iterator-interface"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Dhii/iterator-abstract"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Dhii/iterator-base"
         }
     ]
 }
