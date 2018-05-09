@@ -9,30 +9,42 @@
             "email": "dev@rebelcode.com"
         }
     ],
+    "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
         "php": "^5.4 | ^7.0",
-        "rebelcode/wp-admin-menu-interface": "dev-task/initial-interfaces"
+        "rebelcode/wp-admin-menu-interface": "^0.1-alpha1",
+        "dhii/callback-abstract": "^0.1-alpha5",
+        "dhii/invocable-base": "0.1-alpha2",
+        "dhii/data-hierarchy-abstract": "^0.1-alpha1",
+        "dhii/data-key-value-aware-abstract": "^0.1-alpha3",
+        "dhii/validation-base": "^0.2-alpha1",
+        "dhii/iterator-base": "0.1-alpha3",
+        "dhii/normalization-helper-base": "^0.1-alpha2",
+        "dhii/args-list-validation": "^0.1-alpha1",
+        "dhii/url-interface": "^0.1-alpha1"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8",
         "ptrofimov/xpmock": "^1.1",
-        "dhii/php-cs-fixer-config": "dev-php-5.3",
-        "codeclimate/php-test-reporter": "<=0.3.2"
+        "dhii/php-cs-fixer-config": "^0.1",
+        "codeclimate/php-test-reporter": "<=0.3.2",
+        "10up/wp_mock": "^0.1 | ^0.2 | ^0.3",
+        "rebelcode/wp-admin-page-interface": "^0.1-alpha1"
     },
     "autoload": {
         "psr-4": {
             "RebelCode\\WordPress\\Admin\\Menu\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "RebelCode\\WordPress\\Admin\\Menu\\UnitTest\\": "test/unit",
+            "RebelCode\\WordPress\\Admin\\Menu\\FuncTest\\": "test/functional"
+        }
+    },
     "scripts": {
         "test": "phpunit",
         "csfix": "php-cs-fixer fix -vvv"
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/RebelCodecom/wp-admin-menu-interface"
-        }
-    ]
+    }
 }
