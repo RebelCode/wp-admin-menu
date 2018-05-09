@@ -3,6 +3,7 @@
 namespace RebelCode\WordPress\Admin\Menu;
 
 use Countable;
+use Dhii\Validation\ValidatorInterface;
 use Traversable;
 use Dhii\Data\ChildrenAwareTrait;
 use Dhii\Data\KeyAwareTrait;
@@ -11,6 +12,7 @@ use Dhii\Util\String\StringableInterface as Stringable;
 use Dhii\Validation\Exception\ValidationException;
 use Dhii\Validation\Exception\ValidationFailedException;
 use Dhii\Validation\Exception\ValidationFailedExceptionInterface;
+use Exception as RootException;
 
 /**
  * Basic functionality for menu elements.
@@ -178,23 +180,25 @@ abstract class AbstractMenuElement
     }
 
     /**
-     * Creates an exception for validation failure.
+     * Creates a new validation exception.
      *
      * @since [*next-version*]
      *
-     * @param string                            $message          The exception message.
-     * @param int                               $code             The exception code.
-     * @param null                              $inner            The previous exception in the chain.
-     * @param mixed                             $subject          The subject that failed validation.
-     * @param string[]|Stringable[]|Traversable $validationErrors The validation errors.
+     * @param string|Stringable|null                 $message          The message, if any. Defaults to the first validation error, if available.
+     * @param int|null                               $code             The error code, if any.
+     * @param RootException|null                     $previous         The inner exception, if any.
+     * @param ValidatorInterface|null                $validator        The validator which triggered the exception, if any.
+     * @param mixed|null                             $subject          The subject that has failed validation, if any.
+     * @param string[]|Stringable[]|Traversable|null $validationErrors The errors that are to be associated with the new exception, if any.
      *
-     * @return ValidationFailedExceptionInterface
+     * @return ValidationFailedException The new exception.
      */
     abstract protected function _createValidationFailedException(
-        $message,
-        $code = 0,
-        $inner = null,
+        $message = null,
+        $code = null,
+        RootException $previous = null,
+        ValidatorInterface $validator = null,
         $subject = null,
-        $validationErrors = []
+        $validationErrors = null
     );
 }

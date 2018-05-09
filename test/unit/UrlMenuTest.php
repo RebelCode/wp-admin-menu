@@ -34,7 +34,7 @@ class UrlMenuTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertInstanceOf(
-            'RebelCode\\WordPress\\Admin\\Menu\\UrlAwareInterface',
+            'Dhii\Url\UrlAwareInterface',
             $subject,
             'Subject does not implement expected interface.'
         );

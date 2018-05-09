@@ -101,6 +101,9 @@ class SidebarTest extends TestCase
     /**
      * Tests instance construction to ensure that a valid instance can be created.
      *
+     * @requires function WP_Mock::passthruFunction
+     * @requires function WP_Mock::userFunction
+     *
      * @since [*next-version*]
      *
      */
@@ -117,6 +120,9 @@ class SidebarTest extends TestCase
 
     /**
      * Tests the registration of a top level menu to ensure that it is registered in WordPress' global variables.
+     *
+     * @requires function WP_Mock::passthruFunction
+     * @requires function WP_Mock::userFunction
      *
      * @since [*next-version*]
      */
@@ -135,6 +141,9 @@ class SidebarTest extends TestCase
     /**
      * Tests the registration of a top level menu with children to ensure that all menus are registered in WordPress'
      * global variables.
+     *
+     * @requires function WP_Mock::passthruFunction
+     * @requires function WP_Mock::userFunction
      *
      * @since [*next-version*]
      */
@@ -157,6 +166,9 @@ class SidebarTest extends TestCase
     /**
      * Tests the registration of a submenu to ensure that all menus are registered in WordPress' global variables as a
      * child to the given parent.
+     *
+     * @requires function WP_Mock::passthruFunction
+     * @requires function WP_Mock::userFunction
      *
      * @since [*next-version*]
      */

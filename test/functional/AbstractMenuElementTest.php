@@ -31,6 +31,7 @@ class AbstractMenuElementTest extends TestCase
             ->_createValidationFailedException(function($msg, $code = 0, $inner = null) {
                 return new ValidationFailedException($msg, $code, $inner);
             })
+            ->_normalizeString(function ($string) { return $string; })
             ->new();
 
         return $mock;

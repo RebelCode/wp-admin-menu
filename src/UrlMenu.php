@@ -2,6 +2,9 @@
 
 namespace RebelCode\WordPress\Admin\Menu;
 
+use Dhii\Exception\CreateInvalidArgumentExceptionCapableTrait;
+use Dhii\I18n\StringTranslatingTrait;
+use Dhii\Url\UrlAwareInterface;
 use Dhii\Util\String\StringableInterface;
 
 /**
@@ -11,6 +14,10 @@ use Dhii\Util\String\StringableInterface;
  */
 class UrlMenu extends AbstractBaseMenuElement implements UrlAwareInterface
 {
+    use StringTranslatingTrait;
+
+    use CreateInvalidArgumentExceptionCapableTrait;
+
     /**
      * The URL.
      *
@@ -34,13 +41,13 @@ class UrlMenu extends AbstractBaseMenuElement implements UrlAwareInterface
      */
     public function __construct($key, $label, $capability, $url, $icon = null, $children = [])
     {
-        $this->_setKey($key)
-             ->_setValue($label)
-             ->_setCapability($capability)
-             ->_setUrl($url)
-             ->_setIcon($icon)
-             ->_addChildren($children)
-             ->_construct();
+        $this->_setKey($key);
+        $this->_setValue($label);
+        $this->_setCapability($capability);
+        $this->_setUrl($url);
+        $this->_setIcon($icon);
+        $this->_addChildren($children);
+        $this->_construct();
     }
 
     /**

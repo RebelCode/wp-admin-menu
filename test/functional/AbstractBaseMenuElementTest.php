@@ -44,7 +44,9 @@ class AbstractBaseMenuElementTest extends TestCase
             'capability'  => $cap,
             'icon'        => $icon,
             'children'    => $children,
-            'onSelected'  => function () {}
+            'onSelected'  => function () {},
+            '__' => function ($string) { return $string; },
+            '_createInvalidArgumentException' => null,
         ]);
 
         return $mock;
@@ -145,33 +147,6 @@ class AbstractBaseMenuElementTest extends TestCase
         $result = $subject->getChildren();
 
         $this->assertEquals($children, $result, '', 0, 10, true);
-    }
-
-    /**
-     * Tests the ValidationFailedExceptionInterface creation method to ensure that it correctly creates the
-     * exception instance.
-     *
-     * @since [*next-version*]
-     */
-    public function testCreateValidationFailedException()
-    {
-        $subject = $this->createInstance('');
-        $reflect = $this->reflect($subject);
-
-        /* @var $exception ValidationFailedException */
-        $exception = $reflect->_createValidationFailedException(
-            $message = 'Some exception message',
-            $code = 18,
-            $inner = new \Exception('Inner exception', 2, null),
-            $cause = $subject,
-            $errors = ['Some error', 'Another FUBAR error message']
-        );
-
-        $this->assertEquals($message, $exception->getMessage());
-        $this->assertEquals($code,    $exception->getCode());
-        $this->assertSame  ($inner,   $exception->getPrevious());
-        $this->assertEquals($cause,   $exception->getSubject());
-        $this->assertEquals($errors,  $exception->getValidationErrors());
     }
 
     /**

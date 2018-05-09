@@ -2,10 +2,15 @@
 
 namespace RebelCode\WordPress\Admin\Menu;
 
+use Dhii\I18n\StringTranslatingTrait;
 use Dhii\Iterator\AbstractBaseRecursiveIterator;
 use Dhii\Iterator\ChildrenAwareRecursiveIteratorTrait;
+use Dhii\Iterator\CreateIteratorExceptionCapableTrait;
+use Dhii\Iterator\Exception\IteratorExceptionInterface;
 use Dhii\Iterator\KeyAwareIterableTrait;
 use Dhii\Iterator\RecursiveIteratorInterface as R;
+use Dhii\Util\String\StringableInterface as Stringable;
+use Exception as RootException;
 
 /**
  * A recursive iterator that iterates over a menu's children and all other nested descendents.
@@ -29,6 +34,12 @@ class RecursiveMenuIterator extends AbstractBaseRecursiveIterator
      * @since [*next-version*]
      */
     use ChildrenAwareRecursiveIteratorTrait;
+
+    /* @since [*next-version*] */
+    use StringTranslatingTrait;
+
+    /* @since [*next-version*] */
+    use CreateIteratorExceptionCapableTrait;
 
     /**
      * The menu to iterate over.
@@ -100,5 +111,24 @@ class RecursiveMenuIterator extends AbstractBaseRecursiveIterator
     protected function _getCurrentIterableValue(&$iterable)
     {
         return current($iterable);
+    }
+
+    /**
+     * Throws a new iterator exception.
+     *
+     * @since [*next-version*]
+     *
+     * @param string|Stringable|null $message The error message, if any.
+     * @param int|null $code The error code, if any.
+     * @param RootException|null $previous The inner exception for chaining, if any.
+     *
+     * @return IteratorExceptionInterface The created exception.
+     */
+    protected function _throwIteratorException(
+        $message = null,
+        $code = null,
+        RootException $previous = null
+    ) {
+        throw $this->_createIteratorException($message, $code, $previous, $this);
     }
 }

@@ -2,7 +2,9 @@
 
 namespace RebelCode\WordPress\Admin\Menu;
 
-use Dhii\Validation\Exception\ValidationFailedException;
+use Dhii\Util\Normalization\NormalizeIterableCapableTrait;
+use Dhii\Util\Normalization\NormalizeStringCapableTrait;
+use Dhii\Validation\CreateValidationFailedExceptionCapableTrait;
 use IteratorAggregate;
 
 /**
@@ -14,6 +16,15 @@ abstract class AbstractBaseMenuElement extends AbstractMenuElement implements
     MenuElementInterface,
     IteratorAggregate
 {
+    /* @since [*next-version*] */
+    use NormalizeStringCapableTrait;
+
+    /* @since [*next-version*] */
+    use NormalizeIterableCapableTrait;
+
+    /* @since [*next-version*] */
+    use CreateValidationFailedExceptionCapableTrait;
+
     /**
      * {@inheritdoc}
      *
@@ -92,20 +103,5 @@ abstract class AbstractBaseMenuElement extends AbstractMenuElement implements
     public function getIterator()
     {
         return new RecursiveMenuIterator($this);
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @since [*next-version*]
-     */
-    protected function _createValidationFailedException(
-        $message,
-        $code = 0,
-        $inner = null,
-        $subject = null,
-        $validationErrors = []
-    ) {
-        return new ValidationFailedException($message, $code, $inner, $subject, $validationErrors);
     }
 }

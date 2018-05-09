@@ -2,6 +2,8 @@
 
 namespace RebelCode\WordPress\Admin\Menu;
 
+use Dhii\Exception\CreateInvalidArgumentExceptionCapableTrait;
+use Dhii\I18n\StringTranslatingTrait;
 use RebelCode\WordPress\Admin\Page\PageAwareInterface;
 use RebelCode\WordPress\Admin\Page\PageInterface;
 
@@ -12,6 +14,10 @@ use RebelCode\WordPress\Admin\Page\PageInterface;
  */
 class PageMenu extends AbstractBaseMenuElement implements PageAwareInterface
 {
+    use StringTranslatingTrait;
+
+    use CreateInvalidArgumentExceptionCapableTrait;
+
     /**
      * The page instance.
      *
@@ -35,13 +41,13 @@ class PageMenu extends AbstractBaseMenuElement implements PageAwareInterface
      */
     public function __construct($key, $label, $capability, PageInterface $page, $icon = null, $children = [])
     {
-        $this->_setKey($key)
-             ->_setValue($label)
-             ->_setCapability($capability)
-             ->_setPage($page)
-             ->_setIcon($icon)
-             ->_addChildren($children)
-             ->_construct();
+        $this->_setKey($key);
+        $this->_setValue($label);
+        $this->_setCapability($capability);
+        $this->_setPage($page);
+        $this->_setIcon($icon);
+        $this->_addChildren($children);
+        $this->_construct();
     }
 
     /**

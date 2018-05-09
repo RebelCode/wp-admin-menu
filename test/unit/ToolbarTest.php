@@ -59,6 +59,9 @@ class ToolbarTest extends TestCase
     /**
      * Tests instance construction to ensure that a valid instance can be created.
      *
+     * @requires function WP_Mock::passthruFunction
+     * @requires function WP_Mock::userFunction
+     *
      * @since [*next-version*]
      */
     public function testConstructor()
@@ -75,6 +78,9 @@ class ToolbarTest extends TestCase
 
     /**
      * Tests the menu registration method to ensure that the WordPress Toolbar receives the menu to add.
+     *
+     * @requires function WP_Mock::passthruFunction
+     * @requires function WP_Mock::userFunction
      *
      * @since [*next-version*]
      */
